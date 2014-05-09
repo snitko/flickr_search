@@ -1,0 +1,17 @@
+.container {
+  
+  margin: 0 auto; width: 700px;
+  .searchForm {
+    margin-top: 3em; text-align: center;
+    input { font-size: 200%; }
+  }
+
+  .searchResults {
+    margin-top: 5em;
+    table {
+      width: 100%;
+      td { width: 20%; text-align: center; vertical-align: middle; }
+    }
+  }
+
+}
