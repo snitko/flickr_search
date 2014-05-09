@@ -2,6 +2,11 @@
 
 jQuery ($) ->
 
+  $('#search_text').keypress (e) ->
+    if e.which == 13
+      $('#search_submit').click()
+
+
   $('#search_submit').click () ->
 
     if $('#search_text').prop('value').length == 0
