@@ -27,6 +27,13 @@ module FlickrSearch
     end
 
     config.cache_store = :redis_store, 'redis://localhost:6379/0/cache', { expires_in: 90.minutes }
+    
+    require 'flickraw'
+
+    # As this is just a test app, I'm putting API keys here.
+    # Normally I would put keys into a .yml file and add it to .gitignore.
+    FlickRaw.api_key="2d64ecec5ec9ab95d86e3d49993e1a64"
+    FlickRaw.shared_secret="519eb1082c328e70"
 
   end
 end
