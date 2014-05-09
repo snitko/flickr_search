@@ -1,28 +1,15 @@
-== README
+== Files you will be interested in:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* app/controllers/search_controller.rb
 
-Things you may want to cover:
+* app/views/frontpage.html.haml
 
-* Ruby version
+* obviously, all assests and js
 
-* System dependencies
+* config/application.rb
 
-* Configuration
+I haven't written any unit tests since the search controller is rather small and I didn't have enough time. Ideally, I would probably test the #generate_photo_url method (although indeed, it's private) and also maybe stub the flickr request to make sure we correctly process the response.
 
-* Database creation
+Frontend is plain jQuery + Coffeescript. No need to complicate at this stage.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Overall, took me exactly 2 hours to write code, explore Flickr API and experiment as how to best display things in the frontend.
