@@ -4,6 +4,7 @@
   .searchForm {
     margin-top: 3em; text-align: center;
     input { font-size: 200%; }
+    input#search_submit { width: 150px; }
   }
 
   .searchResults {
