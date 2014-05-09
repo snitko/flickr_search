@@ -1,14 +1,23 @@
 class SearchController < ApplicationController
 
   def search
-    flickr_response = flickr.photos.search(
-      tags:     params[:search_text],
-      page:     1,
-      per_page: 30
-    )
 
-    photos = flickr_response.to_a.map do |photo|
-      { big_url: generate_photo_url(photo, 'b'), thumbnail_url: generate_photo_url(photo, 'q') }
+    # Caching uses redis here, see settings in config/application.rb
+    # config.action_controller.perform_caching is set to 'true' for development.
+    photos = cache "search_text:#{params[:search_text]}" do
+
+      flickr_response = flickr.photos.search(
+        tags:     params[:search_text],
+        page:     1,
+        per_page: 30
+      )
+
+      photos_urls = flickr_response.to_a.map do |photo|
+        { big_url: generate_photo_url(photo, 'b'), thumbnail_url: generate_photo_url(photo, 'q') }
+      end
+
+      photos_urls
+
     end
 
     render json: photos
